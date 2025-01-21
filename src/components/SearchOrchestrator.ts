@@ -34,12 +34,8 @@ export class SearchOrchestrator {
     if (numLines <= 0 || numLines > this.MAX_LINES) {
       throw new Error(`Number of lines must be between 1 and ${this.MAX_LINES}`);
     }
-
-    // Ensure the file path is within /var/log
     const filePath = path.join(this.LOG_DIR, path.basename(filename));
-    if (!filePath.startsWith(this.LOG_DIR)) {
-      throw new Error('Invalid file path - must be within /var/log');
-    }
+
 
     // Store results for filtering
     const results: string[] = [];
